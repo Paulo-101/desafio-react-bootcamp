@@ -13,12 +13,12 @@ const [repositories, setRepositories] = useState([]);
   }, []);
   async function handleAddRepository() {
     const response = await api.post('repositories', {
-      title: 'Repositório desafio',
+      title: 'Novo Repositório',
       url: 'https://github.com/Paulo-101/desafio2bootcamp',
       techs:['NodeJs', 'ReactJS']
-    })
+    });
 
-    setRepositories([...repositories, response.data ])
+    setRepositories([...repositories, response.data]);
   }
 
   async function handleRemoveRepository(id) {
@@ -37,13 +37,13 @@ const [repositories, setRepositories] = useState([]);
           {repository.title}
 
           <button onClick={() => handleRemoveRepository(repository.id)}>
-            Remover Repositório
+            Remover
           </button>
         </li>
         ))}
       </ul>
 
-      <button onClick={handleAddRepository}>Adicionar Repositório</button>
+      <button onClick={handleAddRepository}>Adicionar</button>
     </div>
   );
 }
